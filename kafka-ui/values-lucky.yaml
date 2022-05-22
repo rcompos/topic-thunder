@@ -58,9 +58,9 @@ service:
 ingress:
   # enabled: false
   enabled: true
-  # annotations: {}
-  annotations:
-    kubernetes.io/ingress.class: nginx-ingress
+  annotations: {}
+  # annotations:
+  #   kubernetes.io/ingress.class: nginx-ingress
   hosts:
     - host: kafka-ui-lucky.blacklab.lan
       # paths: []
