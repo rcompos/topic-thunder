@@ -33,11 +33,11 @@ envs:
     # Tanzu-POC
     #
     KAFKA_CLUSTERS_0_NAME:
-      tanzu-poc 
+      metrics-pipeline
     KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS:
-      tanzu-poc-kafka-bootstrap.kafka-tanzu-poc:9092
+      metrics-pipeline-kafka-bootstrap.kafka-tanzu-poc:9092
     KAFKA_CLUSTERS_0_ZOOKEEPER:
-      tanzu-poc-zookeeper-client.kafka-tanzu-poc:2181
+      metrics-pipeline-zookeeper-client.kafka-tanzu-poc:2181
 
 podAnnotations: {}
 
@@ -61,19 +61,9 @@ ingress:
   # enabled: true
   # annotations: {}
   annotations:
-    kubernetes.io/ingress.class: alb
-    alb.ingress.kubernetes.io/group: zerotrust
-    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS": 443}]'
-    alb.ingress.kubernetes.io/scheme: internet-facing
-    alb.ingress.kubernetes.io/tags: Owner=dataeng@lucidmotors.com,CostCenter=dataeng,Environment=staging
-    alb.ingress.kubernetes.io/target-type: ip
-    alb.ingress.kubernetes.io/security-groups: sg-01116733ad3a6ecaa
-    #alb.ingress.kubernetes.io/scheme: "internal"
-    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-west-2:114022551577:certificate/7e02c4b7-5a59-4399-8ba0-c1de77534681
-    #alb.ingress.kubernetes.io/healthcheck-path: "/healthz"
-    #alb.ingress.kubernetes.io/success-codes: 200,201,302
+    kubernetes.io/ingress.class: nginx-ingress
   hosts:
-    - host: kafka-ui.naos.staging.dataeng.pdx.atieva.com
+    - host: kafka-ui-lucky.blacklab.lan
       # paths: []
       paths:
       - path: /*
@@ -87,8 +77,8 @@ resources:
     cpu: 200m
     memory: 512Mi
   requests:
-    cpu: 200m
-    memory: 256Mi
+    cpu: 100m
+    memory: 125Mi
 
 autoscaling:
   # enabled: true

@@ -4,10 +4,10 @@
 
 replicaCountMin: 3
 
-clusterName: tanzu-poc
+clusterName: metrics-pipeline
 
 nameOverride: ""
-fullnameOverride: kafka-tanzu-poc
+fullnameOverride: "metrics-pipeline"
 
 # listenersExternal: false
 
