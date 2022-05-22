@@ -21,11 +21,9 @@ image:
 ingress:
   dashboard:
     annotations: {}
-    # enabled: false
-    enabled: true
+    enabled: false
     hosts:
-    # - dashboard.emqx.local
-    - emqx-dashboard.blacklab.lan
+    - dashboard.emqx.local
     path: /
     tls: []
   mgmt:
@@ -66,7 +64,8 @@ service:
     mqttssl: null
     ws: null
     wss: null
-  type: ClusterIP
+  # type: ClusterIP
+  type: LoadBalancer
   ws: 8083
   wss: 8084
 tolerations: []
