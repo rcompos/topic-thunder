@@ -37,3 +37,4 @@ spec:
             name: kafka-ui
             port:
               number: {{ $svcPort }}
+{{- end }}
