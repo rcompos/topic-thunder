@@ -3,8 +3,7 @@
 replicaCount: 1
 
 image:
-  # repository: provectuslabs/kafka-ui
-  repository: sjc01itharapd01.corp.lucid.lcl/tanzu-poc/kafka-ui
+  repository: provectuslabs/kafka-ui
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
   tag: "latest"
