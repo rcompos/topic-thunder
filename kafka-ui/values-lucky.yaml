@@ -67,7 +67,7 @@ ingress:
       paths:
       - path: /*
         backend:
-          serviceName: kafka-ui.local
+          serviceName: kafka-ui
           servicePort: 80
   tls: []
 
