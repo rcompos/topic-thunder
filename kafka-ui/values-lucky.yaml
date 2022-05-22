@@ -34,9 +34,9 @@ envs:
     KAFKA_CLUSTERS_0_NAME:
       metrics-pipeline
     KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS:
-      metrics-pipeline-kafka-bootstrap.kafka-tanzu-poc:9092
+      metrics-pipeline-kafka-bootstrap.kafka-metrics-pipeline:9092
     KAFKA_CLUSTERS_0_ZOOKEEPER:
-      metrics-pipeline-zookeeper-client.kafka-tanzu-poc:2181
+      metrics-pipeline-zookeeper-client.kafka-metrics-pipeline:2181
 
 podAnnotations: {}
 
