@@ -1,7 +1,7 @@
 apiVersion: kafka.strimzi.io/v1beta2
 kind: KafkaBridge
 metadata:
-  name: {{ .Values.clusterName }}
+  name: {{ .Values.clusterName }}-bridge
 spec:
 #  template:
 #    pod:
