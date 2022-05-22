@@ -7,7 +7,7 @@ replicaCountMin: 3
 clusterName: metrics-pipeline
 
 nameOverride: ""
-fullnameOverride: "metrics-pipeline"
+fullnameOverride: ""
 
 # listenersExternal: false
 
