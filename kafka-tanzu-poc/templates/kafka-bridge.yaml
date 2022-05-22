@@ -1,0 +1,26 @@
+apiVersion: kafka.strimzi.io/v1beta2
+kind: KafkaBridge
+metadata:
+  name: {{ .Values.clusterName }}
+spec:
+#  template:
+#    pod:
+#      affinity:
+#        nodeAffinity:
+#          requiredDuringSchedulingIgnoredDuringExecution:
+#            nodeSelectorTerms:
+#              - matchExpressions:
+#                - key: dedicated
+#                  operator: In
+#                  values:
+#                  - kafka
+#      tolerations:
+#      - key: dedicated
+#        value: kafka
+#        operator: Equal
+#        effect: NoSchedule
+  replicas: 1
+  bootstrapServers: "{{ .Values.clusterName }}-kafka-bootstrap:9092"
+  http:
+    port: 8080
+

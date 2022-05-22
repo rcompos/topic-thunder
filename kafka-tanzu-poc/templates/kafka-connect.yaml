@@ -1,0 +1,38 @@
+# apiVersion: kafka.strimzi.io/v1beta1
+# kind: KafkaConnect
+# metadata:
+#   name: {{ .Values.clusterName }}-connect 
+# #  annotations:
+# #  # use-connector-resources configures this KafkaConnect
+# #  # to use KafkaConnector resources to avoid
+# #  # needing to call the Connect REST API directly
+# #    strimzi.io/use-connector-resources: "true"
+# spec:
+#   template:
+#     pod:
+#       affinity:
+#         nodeAffinity:
+#           requiredDuringSchedulingIgnoredDuringExecution:
+#             nodeSelectorTerms:
+#               - matchExpressions:
+#                 - key: dedicated
+#                   operator: In
+#                   values:
+#                   - kafka
+#       tolerations:
+#       - key: dedicated
+#         value: kafka
+#         operator: Equal
+#         effect: NoSchedule
+#   version: 2.6.0
+#   replicas: 1
+#   bootstrapServers: {{ .Values.clusterName }}-kafka-bootstrap:9092
+#   # tls:
+#   #   trustedCertificates:
+#   #     - secretName: {{ .Values.clusterName }}-ca-cert
+#   #       certificate: ca.crt
+#   config:
+#     group.id: connect-cluster
+#     offset.storage.topic: connect-cluster-offsets
+#     config.storage.topic: connect-cluster-configs
+#     status.storage.topic: connect-cluster-status

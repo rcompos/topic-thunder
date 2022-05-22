@@ -1,0 +1,34 @@
+spec:
+  project: proj-metrics-pipeline
+  destination:
+    server: https://kubernetes.default.svc
+    namePrefix: ""
+  source:
+    repoURL: https://github.com/rcompos/metrics-pipeline
+    targetRevision: main
+
+# Values file used by downstream apps
+valueFiles:
+  - values-lucky.yaml
+
+# Application Definitions
+#
+# apps: 
+#   appNickname:                      # Go conforming name (camelCase)
+#     name: name-of-app               # Canonical app name (required)
+#     values: values-my-env.yaml      # Values file (optional)
+#     namespace: custom-namespace     # Namespace (optional)
+#     repo: https://gitlab.corp.atieva.com/data/my-repo.git   # Git chart repo (optional)
+#     path: path/to/my-chart          # Path under chart repo (optional)
+#     targetRev: my/branch            # Git branch (optional)
+#     ignoreDiffs: true               # Ignore CRD diffs
+
+apps:
+  emqxEE:
+    name: emqx-ee
+    values: ""
+    namespace: ""
+    repo: ""
+    path: ""
+    targetRev: ""
+    ignoreDiffs: true
