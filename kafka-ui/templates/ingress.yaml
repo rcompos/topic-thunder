@@ -26,6 +26,7 @@ spec:
       secretName: {{ .secretName }}
     {{- end }}
   {{- end }}
+  ingressClassName: kafka-ui
   rules:
   - http:
       paths:
@@ -33,6 +34,6 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: kafka-ui.local
+            name: kafka-ui
             port:
               number: {{ $svcPort }}
