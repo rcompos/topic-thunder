@@ -21,9 +21,11 @@ image:
 ingress:
   dashboard:
     annotations: {}
-    enabled: false
+    # enabled: false
+    enabled: true
     hosts:
-    - dashboard.emqx.local
+    # - dashboard.emqx.local
+    - emqx-dashboard.blacklab.lan
     path: /
     tls: []
   mgmt:
