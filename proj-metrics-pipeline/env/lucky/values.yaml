@@ -40,6 +40,14 @@ apps:
     path: ""
     targetRev: ""
     ignoreDiffs: true
+  strimziKafkaOperator:
+    name: strimzi-kafka-operator
+    values: ""
+    namespace: ""
+    repo: ""
+    path: ""
+    targetRev: ""
+    ignoreDiffs: true
   kafkaUI:
     name: kafka-ui
     values: ""
