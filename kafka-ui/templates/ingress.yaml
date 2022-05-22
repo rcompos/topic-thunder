@@ -23,7 +23,7 @@ spec:
         # {{- range .hosts }}
         # - {{ . | quote }}
         # {{- end }}
-        - kafka-ui-lucky.blacklab.lan
+        - "kafka-ui-lucky.blacklab.lan"
       secretName: {{ .secretName }}
     {{- end }}
   {{- end }}
