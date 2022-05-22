@@ -6,8 +6,7 @@ watchNamespaces: []
 # watchAnyNamespace: false
 watchAnyNamespace: true
 
-# defaultImageRegistry: quay.io
-defaultImageRegistry: sjc01itharapd01.corp.lucid.lcl/tanzu-poc
+defaultImageRegistry: quay.io
 defaultImageRepository: strimzi
 defaultImageTag: 0.28.0
 
