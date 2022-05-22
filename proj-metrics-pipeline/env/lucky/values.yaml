@@ -32,3 +32,19 @@ apps:
     path: ""
     targetRev: ""
     ignoreDiffs: true
+  kafkas:
+    name: kafkas
+    values: ""
+    namespace: ""
+    repo: ""
+    path: ""
+    targetRev: ""
+    ignoreDiffs: true
+  kafkaUI:
+    name: kafka-ui
+    values: ""
+    namespace: ""
+    repo: ""
+    path: ""
+    targetRev: ""
+    ignoreDiffs: true
