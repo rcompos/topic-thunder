@@ -28,14 +28,14 @@ spec:
   {{- end }}
   ingressClassName: nginx
   rules:
-  - host: "kafka-ui-lucky.blacklab.lan"
+  - host: kafka-ui-lucky.blacklab.lan
     http:
       paths:
       - path: /*
         pathType: Prefix
         backend:
           service:
-            name: "kafka-ui.kafka-ui.svc"
+            name: kafka-ui
             port:
               number: {{ $svcPort }}
 {{- end }}
