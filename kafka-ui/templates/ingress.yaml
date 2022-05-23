@@ -35,7 +35,7 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: kafka-ui.kafka-ui.svc
+            name: "kafka-ui.kafka-ui.svc"
             port:
               number: {{ $svcPort }}
 {{- end }}
