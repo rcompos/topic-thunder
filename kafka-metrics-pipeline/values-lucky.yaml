@@ -1,4 +1,4 @@
-# Default values for Kafka cluster kafka-clusters.
+# Default values for Kafka cluster kafka-metrics-pipeline.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 

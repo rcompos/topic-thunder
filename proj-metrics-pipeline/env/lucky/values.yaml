@@ -32,18 +32,18 @@ apps:
     path: ""
     targetRev: ""
     ignoreDiffs: true
-  strimziKafkaOperator:
-    name: strimzi-kafka-operator
+  kafkaMetricsPipeline:
+    name: kafka-metrics-pipeline
     values: ""
     namespace: ""
     repo: ""
     path: ""
     targetRev: ""
     ignoreDiffs: true
-  kafkaCLusters:
-    name: kafka-clusters
+  strimziKafkaOperator:
+    name: strimzi-kafka-operator
     values: ""
-    namespace: "kafka-metrics-pipeline"
+    namespace: ""
     repo: ""
     path: ""
     targetRev: ""
