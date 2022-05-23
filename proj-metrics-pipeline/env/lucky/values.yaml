@@ -43,7 +43,7 @@ apps:
   kafkaCLusters:
     name: kafka-clusters
     values: ""
-    namespace: ""
+    namespace: "kafka-metrics-pipeline"
     repo: ""
     path: ""
     targetRev: ""
