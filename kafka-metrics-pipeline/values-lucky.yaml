@@ -7,7 +7,8 @@ replicaCountMin: 3
 clusterName: metrics-pipeline
 
 nameOverride: ""
-fullnameOverride: "kafka-metrics-pipeline"
+# fullnameOverride: "kafka-metrics-pipeline"
+fullnameOverride: ""
 
 # listenersExternal: false
 
