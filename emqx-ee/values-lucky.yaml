@@ -10,6 +10,17 @@ emqxConfig:
   EMQX_CLUSTER__K8S__APISERVER: https://kubernetes.default.svc:443
   EMQX_CLUSTER__K8S__SUFFIX: svc.cluster.local
   EMQX_LOG__TO: both
+  # Kafka Config
+  EMQX_BRIDGE__KAFKA__SERVERS: vehicle-pipeline-kafka-brokers.kafka-vehicle-pipeline:9092
+  EMQX_BRIDGE__KAFKA__PRODUCE: async
+  EMQX_BRIDGE__KAFKA__PRODUCER__REPLAYQ_SEG_BYTES: 500MB
+  EMQX_BRIDGE__KAFKA__PRODUCER__REQUIRED_ACKS: none
+  EMQX_BRIDGE__KAFKA__PRODUCER__MAX_SEND_AHEAD: 30
+  EMQX_BRIDGE__KAFKA__ENCODE_PAYLOAD_TYPE: base64
+  EMQX_BRIDGE__KAFKA__SOCK__BUFFER: 40MB
+  EMQX_BRIDGE__KAFKA__SOCK__RECBUF: 40MB
+  EMQX_BRIDGE__KAFKA__SOCK__SNDBUF: 40MB
+  EMQX_BRIDGE__KAFKA__HOOK__MESSAGE__PUBLISH__1: '{\"filter\": \"car/beta/+/log\", \"topic\": \"raw-car-messages\"}'
 emqxLicenseSecretName: null
 emqxLoadedModules: |
   [ { "name": "internal_acl", "enable": true, "configs": {"acl_rule_file": "etc/acl.conf"} }, { "name": "presence", "enable": true, "configs": {"qos": 0} }, { "name": "recon", "enable": true, "configs": {} }, { "name": "retainer", "enable": true, "configs": { "expiry_interval": 0, "max_payload_size": "1MB", "max_retained_messages": 0, "storage_type": "ram" } } ]
