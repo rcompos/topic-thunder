@@ -64,8 +64,7 @@ service:
     mqttssl: null
     ws: null
     wss: null
-  # type: ClusterIP
-  type: LoadBalancer
+  type: ClusterIP
   ws: 8083
   wss: 8084
 tolerations: []
