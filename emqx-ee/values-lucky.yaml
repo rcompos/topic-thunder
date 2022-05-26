@@ -24,8 +24,10 @@ emqxConfig:
 emqxLicenseSecretName: null
 emqxLoadedModules: |
   [ { "name": "internal_acl", "enable": true, "configs": {"acl_rule_file": "etc/acl.conf"} }, { "name": "presence", "enable": true, "configs": {"qos": 0} }, { "name": "recon", "enable": true, "configs": {} }, { "name": "retainer", "enable": true, "configs": { "expiry_interval": 0, "max_payload_size": "1MB", "max_retained_messages": 0, "storage_type": "ram" } } ]
+# emqxLoadedPlugins: |
+#   {emqx_management, true}. {emqx_recon, true}. {emqx_retainer, true}. {emqx_dashboard, true}. {emqx_telemetry, true}. {emqx_rule_engine, true}. {emqx_bridge_mqtt, false}. {emqx_modules, true}.
 emqxLoadedPlugins: |
-  {emqx_management, true}. {emqx_recon, true}. {emqx_retainer, true}. {emqx_dashboard, true}. {emqx_telemetry, true}. {emqx_rule_engine, true}. {emqx_bridge_mqtt, false}. {emqx_modules, true}.
+  {emqx_management, true}. {emqx_recon, true}. {emqx_retainer, true}. {emqx_dashboard, true}. {emqx_telemetry, true}. {emqx_rule_engine, true}. {emqx_bridge_kafka, true}. {emqx_modules, true}.
 image:
   pullPolicy: IfNotPresent
   repository: emqx/emqx-ee
