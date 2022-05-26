@@ -1,4 +1,4 @@
-# Default values for Kafka cluster kafka-metrics-pipeline.
+# Default values for Kafka cluster kafka.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
@@ -7,7 +7,7 @@ replicaCountMin: 3
 clusterName: metrics-pipeline
 
 nameOverride: ""
-# fullnameOverride: "kafka-metrics-pipeline"
+# fullnameOverride: "kafka"
 fullnameOverride: ""
 
 # listenersExternal: false
