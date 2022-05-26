@@ -13,17 +13,17 @@ emqxConfig:
   #
   # Custom config
   #
-  # Kafka Config
-  EMQX_BRIDGE__KAFKA__SERVERS: metrics-pipeline-kafka-brokers.kafka:9092
-  EMQX_BRIDGE__KAFKA__PRODUCE: async
-  EMQX_BRIDGE__KAFKA__PRODUCER__REPLAYQ_SEG_BYTES: 500MB
-  EMQX_BRIDGE__KAFKA__PRODUCER__REQUIRED_ACKS: none
-  EMQX_BRIDGE__KAFKA__PRODUCER__MAX_SEND_AHEAD: 30
-  EMQX_BRIDGE__KAFKA__ENCODE_PAYLOAD_TYPE: base64
-  EMQX_BRIDGE__KAFKA__SOCK__BUFFER: 40MB
-  EMQX_BRIDGE__KAFKA__SOCK__RECBUF: 40MB
-  EMQX_BRIDGE__KAFKA__SOCK__SNDBUF: 40MB
-  EMQX_BRIDGE__KAFKA__HOOK__MESSAGE__PUBLISH__1: '{\"topic\": \"testtopic\"}'
+  # # Kafka Config
+  # EMQX_BRIDGE__KAFKA__SERVERS: metrics-pipeline-kafka-brokers.kafka:9092
+  # EMQX_BRIDGE__KAFKA__PRODUCE: async
+  # EMQX_BRIDGE__KAFKA__PRODUCER__REPLAYQ_SEG_BYTES: 500MB
+  # EMQX_BRIDGE__KAFKA__PRODUCER__REQUIRED_ACKS: none
+  # EMQX_BRIDGE__KAFKA__PRODUCER__MAX_SEND_AHEAD: 30
+  # EMQX_BRIDGE__KAFKA__ENCODE_PAYLOAD_TYPE: base64
+  # EMQX_BRIDGE__KAFKA__SOCK__BUFFER: 40MB
+  # EMQX_BRIDGE__KAFKA__SOCK__RECBUF: 40MB
+  # EMQX_BRIDGE__KAFKA__SOCK__SNDBUF: 40MB
+  # EMQX_BRIDGE__KAFKA__HOOK__MESSAGE__PUBLISH__1: '{\"topic\": \"testtopic\"}'
 emqxLicenseSecretName: null
 emqxLoadedModules: |
   [ { "name": "internal_acl", "enable": true, "configs": {"acl_rule_file": "etc/acl.conf"} }, { "name": "presence", "enable": true, "configs": {"qos": 0} }, { "name": "recon", "enable": true, "configs": {} }, { "name": "retainer", "enable": true, "configs": { "expiry_interval": 0, "max_payload_size": "1MB", "max_retained_messages": 0, "storage_type": "ram" } } ]
@@ -39,7 +39,7 @@ emqxLoadedPlugins: >
   {emqx_prometheus, true}.
   {emqx_modules, true}.
   {emqx_auth_http, true}.
-  {emqx_telemetry, true}.
+  {emqx_telemetry, false}.
   {emqx_bridge_mqtt, false}.
 image:
   pullPolicy: IfNotPresent
