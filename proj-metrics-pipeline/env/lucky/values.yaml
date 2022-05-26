@@ -32,8 +32,8 @@ apps:
     path: ""
     targetRev: ""
     ignoreDiffs: true
-  kafkaMetricsPipeline:
-    name: kafka-metrics-pipeline
+  kafka:
+    name: kafka
     values: ""
     namespace: ""
     repo: ""
