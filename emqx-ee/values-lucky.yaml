@@ -23,28 +23,24 @@ emqxConfig:
   EMQX_BRIDGE__KAFKA__SOCK__BUFFER: 40MB
   EMQX_BRIDGE__KAFKA__SOCK__RECBUF: 40MB
   EMQX_BRIDGE__KAFKA__SOCK__SNDBUF: 40MB
-  # EMQX_BRIDGE__KAFKA__HOOK__MESSAGE__PUBLISH__1: '{\"filter\": \"car/beta/+/log\", \"topic\": \"raw-car-messages\"}'
   EMQX_BRIDGE__KAFKA__HOOK__MESSAGE__PUBLISH__1: '{\"topic\": \"testtopic\"}'
-  # ACL
 emqxLicenseSecretName: null
 emqxLoadedModules: |
   [ { "name": "internal_acl", "enable": true, "configs": {"acl_rule_file": "etc/acl.conf"} }, { "name": "presence", "enable": true, "configs": {"qos": 0} }, { "name": "recon", "enable": true, "configs": {} }, { "name": "retainer", "enable": true, "configs": { "expiry_interval": 0, "max_payload_size": "1MB", "max_retained_messages": 0, "storage_type": "ram" } } ]
-# emqxLoadedPlugins: |
-#   {emqx_management, true}. {emqx_recon, true}. {emqx_retainer, true}. {emqx_dashboard, true}. {emqx_telemetry, true}. {emqx_rule_engine, true}. {emqx_bridge_mqtt, false}. {emqx_modules, true}.
 emqxLoadedPlugins: >
   {emqx_conf, true}.
   {emqx_dashboard, true}.
-  # {emqx_telemetry, true}.
   {emqx_management, true}.
   {emqx_recon, true}.
   {emqx_retainer, true}.
   {emqx_rule_engine, true}.
-  # {emqx_bridge_mqtt, false}.
   {emqx_schema_registry, true}.
   {emqx_bridge_kafka, true}.
   {emqx_prometheus, true}.
   {emqx_modules, true}.
   {emqx_auth_http, true}.
+  {emqx_telemetry, true}.
+  {emqx_bridge_mqtt, false}.
 image:
   pullPolicy: IfNotPresent
   repository: emqx/emqx-ee
