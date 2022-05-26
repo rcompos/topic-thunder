@@ -11,7 +11,7 @@ emqxConfig:
   EMQX_CLUSTER__K8S__SUFFIX: svc.cluster.local
   EMQX_LOG__TO: both
   # Kafka Config
-  EMQX_BRIDGE__KAFKA__SERVERS: metrics-pipeline-kafka-brokers.kafka:9092
+  EMQX_BRIDGE__KAFKA__SERVERS: metrics-pipeline-kafka-brokers.kafka.svc.cluster.local:9092
   EMQX_BRIDGE__KAFKA__PRODUCE: async
   EMQX_BRIDGE__KAFKA__PRODUCER__REPLAYQ_SEG_BYTES: 500MB
   EMQX_BRIDGE__KAFKA__PRODUCER__REQUIRED_ACKS: none
