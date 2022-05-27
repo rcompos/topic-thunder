@@ -24,6 +24,38 @@ valueFiles:
 #     ignoreDiffs: true               # Ignore CRD diffs
 
 apps:
+  metalLB:
+    name: metallb
+    values: ""
+    namespace: ""
+    repo: ""
+    path: ""
+    targetRev: ""
+    ignoreDiffs: true
+  openebs:
+    name: openebs
+    values: ""
+    namespace: ""
+    repo: ""
+    path: ""
+    targetRev: ""
+    ignoreDiffs: true
+  ingressNginx:
+    name: ingressNginx
+    values: ""
+    namespace: ""
+    repo: ""
+    path: ""
+    targetRev: ""
+    ignoreDiffs: true
+  metricsServer:
+    name: metrics-server
+    values: ""
+    namespace: ""
+    repo: ""
+    path: ""
+    targetRev: ""
+    ignoreDiffs: true
   emqxEE:
     name: emqx-ee
     values: ""
