@@ -1,2 +1,2 @@
-# metrics-pipeline
+# topic-thunder
 Metrics Pipeline

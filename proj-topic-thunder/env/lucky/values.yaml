@@ -1,10 +1,10 @@
 spec:
-  project: proj-metrics-pipeline
+  project: proj-topic-thunder
   destination:
     server: https://kubernetes.default.svc
     namePrefix: ""
   source:
-    repoURL: https://github.com/rcompos/metrics-pipeline
+    repoURL: https://github.com/rcompos/topic-thunder
     targetRevision: main
 
 # Values file used by downstream apps
