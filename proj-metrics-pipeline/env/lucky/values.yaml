@@ -72,11 +72,3 @@ apps:
     path: ""
     targetRev: ""
     ignoreDiffs: true
-  prometheusOperator:
-    name: prometheus-operator
-    values: ""
-    namespace: ""
-    repo: ""
-    path: ""
-    targetRev: ""
-    ignoreDiffs: true
