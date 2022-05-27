@@ -41,7 +41,7 @@ apps:
     targetRev: ""
     ignoreDiffs: true
   ingressNginx:
-    name: ingressNginx
+    name: ingress-nginx
     values: ""
     namespace: ""
     repo: ""
