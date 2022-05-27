@@ -56,3 +56,19 @@ apps:
     path: ""
     targetRev: ""
     ignoreDiffs: true
+  spark:
+    name: spark
+    values: ""
+    namespace: ""
+    repo: ""
+    path: ""
+    targetRev: ""
+    ignoreDiffs: true
+  kubePrometheusStack:
+    name: kube-prometheus-stack
+    values: ""
+    namespace: ""
+    repo: ""
+    path: ""
+    targetRev: ""
+    ignoreDiffs: true
