@@ -59,7 +59,15 @@ apps:
   kubePrometheusStack:
     name: kube-prometheus-stack
     values: ""
-    namespace: ""
+    namespace: "monitoring"
+    repo: ""
+    path: ""
+    targetRev: ""
+    ignoreDiffs: true
+  grafana:
+    name: grafana
+    values: ""
+    namespace: "monitoring"
     repo: ""
     path: ""
     targetRev: ""
