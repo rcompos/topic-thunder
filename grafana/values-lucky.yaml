@@ -285,7 +285,8 @@ extraContainerVolumes: []
 ##
 persistence:
   # type: pvc
-  enabled: false
+  # enabled: false
+  enabled: true
   # storageClassName: default
   accessModes:
     - ReadWriteOnce
@@ -669,7 +670,8 @@ sidecar:
   readinessProbe: {}
   livenessProbe: {}
   dashboards:
-    enabled: false
+    # enabled: false
+    enabled: true
     SCProvider: true
     # label that the configmaps with dashboards are marked with
     label: grafana_dashboard
