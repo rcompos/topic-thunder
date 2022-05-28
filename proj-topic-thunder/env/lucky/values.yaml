@@ -56,6 +56,14 @@ apps:
     path: ""
     targetRev: ""
     ignoreDiffs: true
+  kubePrometheusStack:
+    name: kube-prometheus-stack
+    values: ""
+    namespace: ""
+    repo: ""
+    path: ""
+    targetRev: ""
+    ignoreDiffs: true
   emqxEE:
     name: emqx-ee
     values: ""
@@ -64,16 +72,16 @@ apps:
     path: ""
     targetRev: ""
     ignoreDiffs: true
-  kafka:
-    name: kafka
+  strimziKafkaOperator:
+    name: strimzi-kafka-operator
     values: ""
     namespace: ""
     repo: ""
     path: ""
     targetRev: ""
     ignoreDiffs: true
-  strimziKafkaOperator:
-    name: strimzi-kafka-operator
+  kafka:
+    name: kafka
     values: ""
     namespace: ""
     repo: ""
@@ -90,14 +98,6 @@ apps:
     ignoreDiffs: true
   spark:
     name: spark
-    values: ""
-    namespace: ""
-    repo: ""
-    path: ""
-    targetRev: ""
-    ignoreDiffs: true
-  kubePrometheusStack:
-    name: kube-prometheus-stack
     values: ""
     namespace: ""
     repo: ""

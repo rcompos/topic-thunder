@@ -170,3 +170,9 @@ helm install --name `my-release` -f values.yaml --namespace openebs openebs/open
 ```
 
 > **Tip**: You can use the default [values.yaml](values.yaml)
+
+Specify a default storage class
+
+```bash
+kubectl patch storageclass openebs-hostpath -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"true"}}}'
+```
