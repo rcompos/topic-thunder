@@ -670,8 +670,7 @@ sidecar:
   readinessProbe: {}
   livenessProbe: {}
   dashboards:
-    # enabled: false
-    enabled: true
+    enabled: false
     SCProvider: true
     # label that the configmaps with dashboards are marked with
     label: grafana_dashboard
