@@ -1,5 +1,5 @@
 spec:
-  project: proj-topic-thunder
+  project: proj-infrastructure
   destination:
     server: https://kubernetes.default.svc
     namePrefix: ""
@@ -24,42 +24,58 @@ valueFiles:
 #     ignoreDiffs: true               # Ignore CRD diffs
 
 apps:
-  emqxEE:
-    name: emqx-ee
+  metalLB:
+    name: metallb
     values: ""
     namespace: ""
     repo: ""
     path: ""
     targetRev: ""
     ignoreDiffs: true
-  strimziKafkaOperator:
-    name: strimzi-kafka-operator
+  openebs:
+    name: openebs
     values: ""
     namespace: ""
     repo: ""
     path: ""
     targetRev: ""
     ignoreDiffs: true
-  kafka:
-    name: kafka
+  ingressNginx:
+    name: ingress-nginx
     values: ""
     namespace: ""
     repo: ""
     path: ""
     targetRev: ""
     ignoreDiffs: true
-  kafkaUI:
-    name: kafka-ui
+  metricsServer:
+    name: metrics-server
     values: ""
     namespace: ""
     repo: ""
     path: ""
     targetRev: ""
     ignoreDiffs: true
-  spark:
-    name: spark
+  certManager:
+    name: cert-manager
     values: ""
     namespace: ""
+    repo: ""
+    path: ""
+    targetRev: ""
+    ignoreDiffs: true
+  kubePrometheusStack:
+    name: kube-prometheus-stack
+    values: ""
+    namespace: "monitoring"
+    repo: ""
+    path: ""
+    targetRev: ""
+    ignoreDiffs: true
+  grafana:
+    name: grafana
+    values: ""
+    namespace: "monitoring"
     repo: ""
     path: ""
     targetRev: ""
