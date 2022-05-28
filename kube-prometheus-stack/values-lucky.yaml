@@ -1579,8 +1579,7 @@ prometheusOperator:
   ## Service type
   ## NodePort, ClusterIP, LoadBalancer
   ##
-    # type: ClusterIP
-    type: LoadBalancer
+    type: ClusterIP
 
     ## List of IP addresses at which the Prometheus server service is available
     ## Ref: https://kubernetes.io/docs/user-guide/services/#external-ips
@@ -1785,7 +1784,8 @@ prometheus:
 
     ## Service type
     ##
-    type: ClusterIP
+    # type: ClusterIP
+    type: LoadBalancer
 
     ## gRPC port config
     portName: grpc
