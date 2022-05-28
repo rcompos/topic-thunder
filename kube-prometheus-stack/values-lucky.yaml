@@ -1784,8 +1784,7 @@ prometheus:
 
     ## Service type
     ##
-    # type: ClusterIP
-    type: LoadBalancer
+    type: ClusterIP
 
     ## gRPC port config
     portName: grpc
@@ -1894,7 +1893,8 @@ prometheus:
 
     ## Service type
     ##
-    type: ClusterIP
+    # type: ClusterIP
+    type: LoadBalancer
 
     ## Additional port to define in the Service
     additionalPorts: []
