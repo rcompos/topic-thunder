@@ -56,6 +56,14 @@ apps:
     path: ""
     targetRev: ""
     ignoreDiffs: true
+  certManager:
+    name: cert-manager
+    values: ""
+    namespace: ""
+    repo: ""
+    path: ""
+    targetRev: ""
+    ignoreDiffs: true
   kubePrometheusStack:
     name: kube-prometheus-stack
     values: ""
