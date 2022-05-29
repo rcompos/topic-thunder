@@ -205,7 +205,7 @@ ingress:
 
   hosts:
     # - chart-example.local
-    - grafana.blacklab.lan
+    - grafana-lucky.blacklab.lan
   ## Extra paths to prepend to every host configuration. This is useful when working with annotation based services.
   extraPaths: []
   # - path: /*
