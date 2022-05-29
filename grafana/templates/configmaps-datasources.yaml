@@ -1,4 +1,3 @@
-{{- if or (and .Values.grafana.enabled .Values.grafana.sidecar.datasources.enabled) .Values.grafana.forceDeployDatasources }}
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -49,5 +48,4 @@ data:
 {{- end }}
 {{- if .Values.grafana.additionalDataSources }}
 {{ tpl (toYaml .Values.grafana.additionalDataSources | indent 4) . }}
-{{- end }}
 {{- end }}
