@@ -10424,6 +10424,9 @@ spec:
           name: plugins-home
         - mountPath: /tmp
           name: tmp
+        # custom css
+        - mountPath: /shared/app/custom
+          name: styles
       serviceAccountName: argocd-server
       volumes:
       - emptyDir: {}
@@ -10438,6 +10441,9 @@ spec:
       - configMap:
           name: argocd-tls-certs-cm
         name: tls-certs
+      - configMap:
+          name: argocd-styles-cm
+        name: styles
       - name: argocd-repo-server-tls
         secret:
           items:
