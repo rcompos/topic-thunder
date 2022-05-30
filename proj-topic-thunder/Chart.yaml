@@ -1,6 +1,7 @@
 apiVersion: v2
 name: proj-topic-thunder
 description: A Helm chart for ArgoCD application of applications
+icon: https://github.com/rcompos/rcompos.github.io/cyber-owl.png
 
 # A chart can be either an 'application' or a 'library' chart.
 #
