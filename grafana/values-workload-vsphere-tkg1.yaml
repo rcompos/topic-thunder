@@ -205,7 +205,7 @@ ingress:
 
   hosts:
     # - chart-example.local
-    - grafana-lucky.blacklab.lan
+    - grafana-topic-thunder.data.lucidmotors.com
   ## Extra paths to prepend to every host configuration. This is useful when working with annotation based services.
   extraPaths: []
   # - path: /*
@@ -291,7 +291,7 @@ persistence:
   # storageClassName: default
   accessModes:
     - ReadWriteOnce
-  size: 250Mi
+  size: 10Gi
   # annotations: {}
   finalizers:
     - kubernetes.io/pvc-protection

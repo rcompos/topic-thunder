@@ -1,0 +1,66 @@
+spec:
+  project: proj-topic-thunder
+  destination:
+    server: https://kubernetes.default.svc
+    namePrefix: ""
+  source:
+    repoURL: https://gitlab.corp.atieva.com/data/infrastructure/topic-thunder.git
+    targetRevision: master
+
+# Values file used by downstream apps
+valueFiles:
+  - values-workload-vsphere-tkg1.yaml
+
+# Application Definitions
+#
+# apps: 
+#   appNickname:                      # Go conforming name (camelCase)
+#     name: name-of-app               # Canonical app name (required)
+#     values: values-my-env.yaml      # Values file (optional)
+#     namespace: custom-namespace     # Namespace (optional)
+#     repo: https://gitlab.corp.atieva.com/data/my-repo.git   # Git chart repo (optional)
+#     path: path/to/my-chart          # Path under chart repo (optional)
+#     targetRev: my/branch            # Git branch (optional)
+#     ignoreDiffs: true               # Ignore CRD diffs
+
+apps:
+  emqxEE:
+    name: emqx-ee
+    values: ""
+    namespace: ""
+    repo: ""
+    path: ""
+    targetRev: ""
+    ignoreDiffs: true
+  strimziKafkaOperator:
+    name: strimzi-kafka-operator
+    values: ""
+    namespace: ""
+    repo: ""
+    path: ""
+    targetRev: ""
+    ignoreDiffs: true
+  kafka:
+    name: kafka
+    values: ""
+    namespace: ""
+    repo: ""
+    path: ""
+    targetRev: ""
+    ignoreDiffs: true
+  kafkaUI:
+    name: kafka-ui
+    values: ""
+    namespace: ""
+    repo: ""
+    path: ""
+    targetRev: ""
+    ignoreDiffs: true
+  spark:
+    name: spark
+    values: ""
+    namespace: ""
+    repo: ""
+    path: ""
+    targetRev: ""
+    ignoreDiffs: true
