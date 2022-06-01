@@ -8,7 +8,9 @@ set +x
 
 kubectl -n argocd patch configmap/argocd-cm --type merge \
   -p '{ "data":{
+    "statusbadge.enabled": "true",
     "ui.cssurl": "https://rcompos.github.io/my-styles.css",
+    "ui.bannerpermanent": "true",
     "ui.bannercontent": "Hello ArgoCD afficianado!",
     "ui.bannerurl": "https://github.com/rcompos/topic-thunder"
  }}'
