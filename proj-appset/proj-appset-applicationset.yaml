@@ -1,0 +1,34 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: proj-appset
+spec:
+  generators:
+  - list: 
+      # Parameters are generated based on this cluster list, to be substituted
+      # into the template below.
+      elements: 
+      # - cluster: engineering-dev
+      #   url: https://1.2.3.4
+      # - cluster: engineering-prod
+      #   url: https://2.4.6.8
+      # - cluster: finance-preprod
+      #   url: https://9.8.7.6
+      - cluster: demo1
+        url: https://kubernetes.default.svc
+  template: 
+    # An Argo CD Application template, with support for parameter substitution 
+    # with values from parameters generated above.
+    metadata:
+      name: '{{cluster}}-guestbook'
+    spec:
+      project: proj-appset
+      source:
+        # repoURL: https://github.com/argoproj-labs/applicationset.git
+        repoURL: https://gitlab.corp.atieva.com/data/infrastructure/topic-thunder.git
+        targetRevision: HEAD
+        # path: examples/list-generator/guestbook/{{cluster}}
+        path: guestbook/{{cluster}}
+      destination:
+        server: '{{url}}'
+        namespace: guestbook

@@ -1,0 +1,59 @@
+# apiVersion: kafka.strimzi.io/v1beta2
+# kind: KafkaTopic
+# metadata:
+#   name: ClientConnected
+#   labels:
+#     strimzi.io/cluster: {{ .Values.clusterName }}
+# spec:
+#   partitions: 1
+#   replicas: 1
+# ---
+# apiVersion: kafka.strimzi.io/v1beta2
+# kind: KafkaTopic
+# metadata:
+#   name: ClientDisconnected
+#   labels:
+#     strimzi.io/cluster: {{ .Values.clusterName }}
+# spec:
+#   partitions: 1
+#   replicas: 1
+# ---
+# apiVersion: kafka.strimzi.io/v1beta2
+# kind: KafkaTopic
+# metadata:
+#   name: MessageAcked
+#   labels:
+#     strimzi.io/cluster: {{ .Values.clusterName }}
+# spec:
+#   partitions: 1
+#   replicas: 1
+# ---
+# apiVersion: kafka.strimzi.io/v1beta2
+# kind: KafkaTopic
+# metadata:
+#   name: MessageDelivered
+#   labels:
+#     strimzi.io/cluster: {{ .Values.clusterName }}
+# spec:
+#   partitions: 1
+#   replicas: 1
+# ---
+# apiVersion: kafka.strimzi.io/v1beta2
+# kind: KafkaTopic
+# metadata:
+#   name: SessionSubscribed
+#   labels:
+#     strimzi.io/cluster: {{ .Values.clusterName }}
+# spec:
+#   partitions: 1
+#   replicas: 1
+# ---
+# apiVersion: kafka.strimzi.io/v1beta2
+# kind: KafkaTopic
+# metadata:
+#   name: SessionUnsubscribed
+#   labels:
+#     strimzi.io/cluster: {{ .Values.clusterName }}
+# spec:
+#   partitions: 1
+#   replicas: 1

@@ -1,0 +1,25 @@
+annotations:
+  category: Infrastructure
+apiVersion: v1
+appVersion: "data-production-customer-172064-3d6d739a4d18a7c1d27599a73a1229733c93d8a6"
+dependencies:
+  - name: common
+    repository: https://charts.bitnami.com/bitnami
+    tags:
+      - bitnami-common
+    version: 1.x.x
+description: Spark is a fast and general-purpose cluster computing system.
+engine: gotpl
+home: https://github.com/bitnami/charts/tree/master/bitnami/spark
+icon: https://bitnami.com/assets/stacks/spark/img/spark-stack-220x234.png
+keywords:
+  - apache
+  - spark
+maintainers:
+  - email: containers@bitnami.com
+    name: Bitnami
+name: spark
+sources:
+  - https://github.com/bitnami/bitnami-docker-spark
+  - https://spark.apache.org/
+version: "5.4.66"

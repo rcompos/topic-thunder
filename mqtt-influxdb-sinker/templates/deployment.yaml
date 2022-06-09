@@ -1,0 +1,91 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mqtt-influxdb-sinker
+  labels:
+    app: mqtt-influxdb-sinker
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: mqtt-influxdb-sinker
+  template:
+    metadata:
+      labels:
+        app: mqtt-influxdb-sinker
+    spec:
+      containers:
+        - name: mqtt-influxdb-sinker
+          image: {{ .Values.image.repository }}:{{ .Chart.AppVersion }}
+          imagePullPolicy: {{ .Values.image.imagePullPolicy }}          
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+          env:
+            - name: MQTT_PROTOCOL
+              value: {{ .Values.mqtt.protocol | quote }}
+            - name: MQTT_SERVER
+              value: {{ .Values.mqtt.server | quote }}
+            - name: MQTT_PORT
+              value: {{ .Values.mqtt.port | quote }}
+            - name: MQTT_TOPIC
+              value: {{ .Values.mqtt.topic | quote }}
+            - name: MQTT_CLIENT_ID
+              value: {{ .Values.mqtt.client.id | quote }}
+            - name: MQTT_CLUSTER_ID
+              value: {{ .Values.mqtt.cluster.id | quote }}
+            - name: MQTT_QOS
+              value: {{ .Values.mqtt.qos | quote }}
+            - name: INFLUXDB_SERVER
+              value: {{ .Values.influxdb.server | quote }}
+            - name: INFLUXDB_PORT
+              value: {{ .Values.influxdb.port | quote }}
+            - name: INFLUXDB_DB
+              value: {{ .Values.influxdb.db | quote }}
+            - name: INFLUXDB_RETENTION
+              value: {{ .Values.influxdb.retention | quote }}
+            - name: SECRET_NAME
+              value: {{ .Values.encrypt.secret.name | quote }}
+            - name: AWS_REGION 
+              value: {{ .Values.encrypt.aws.region | quote }}
+            - name: VIN_HASH_ON 
+              value: {{ .Values.encrypt.hash.enable | quote }}
+          volumeMounts:
+            {{- if eq .Values.mqtt.protocol "ssl" }}
+            - name: client-cert
+              mountPath: /cert/client.crt
+              subPath: cert.crt
+              readOnly: true
+            - name: client-key
+              mountPath: /cert/client.key
+              subPath: client.key
+              readOnly: true
+            - name: root-cert
+              mountPath: /cert/root.ca
+              subPath: root.ca
+              readOnly: true
+            {{- end }}
+      volumes:
+      {{- if eq .Values.mqtt.protocol "ssl" }}
+      - name: client-cert
+        secret:
+          secretName: {{ include "mqtt-influxdb-sinker.fullname" . }}-client-cert
+      - name: client-key
+        secret:
+          secretName: {{ include "mqtt-influxdb-sinker.fullname" . }}-client-key
+      - name: root-cert
+        secret:
+          secretName: {{ include "mqtt-influxdb-sinker.fullname" . }}-root-cert
+      {{- end }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+

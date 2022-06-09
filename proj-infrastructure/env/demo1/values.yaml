@@ -4,12 +4,12 @@ spec:
     server: https://kubernetes.default.svc
     namePrefix: ""
   source:
-    repoURL: https://github.com/rcompos/topic-thunder
-    targetRevision: main
+    repoURL: https://gitlab.corp.atieva.com/data/infrastructure/topic-thunder.git
+    targetRevision: master
 
 # Values file used by downstream apps
 valueFiles:
-  - values-lucky.yaml
+  - values-demo1.yaml
 
 # Application Definitions
 #
@@ -24,16 +24,24 @@ valueFiles:
 #     ignoreDiffs: true               # Ignore CRD diffs
 
 apps:
-  metalLB:
-    name: metallb
-    values: ""
-    namespace: ""
-    repo: ""
-    path: ""
-    targetRev: ""
-    ignoreDiffs: true
-  openebs:
-    name: openebs
+  # metalLB:
+  #   name: metallb
+  #   values: ""
+  #   namespace: ""
+  #   repo: ""
+  #   path: ""
+  #   targetRev: ""
+  #   ignoreDiffs: true
+  # openebs:
+  #   name: openebs
+  #   values: ""
+  #   namespace: ""
+  #   repo: ""
+  #   path: ""
+  #   targetRev: ""
+  #   ignoreDiffs: true
+  externalDns:
+    name: external-dns
     values: ""
     namespace: ""
     repo: ""

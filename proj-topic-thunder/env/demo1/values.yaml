@@ -1,15 +1,15 @@
 spec:
-  project: proj-infrastructure
+  project: proj-topic-thunder
   destination:
     server: https://kubernetes.default.svc
     namePrefix: ""
   source:
-    repoURL: https://github.com/rcompos/topic-thunder
-    targetRevision: main
+    repoURL: https://gitlab.corp.atieva.com/data/infrastructure/topic-thunder.git
+    targetRevision: master
 
 # Values file used by downstream apps
 valueFiles:
-  - values-lucky.yaml
+  - values-demo1.yaml
 
 # Application Definitions
 #
@@ -24,58 +24,42 @@ valueFiles:
 #     ignoreDiffs: true               # Ignore CRD diffs
 
 apps:
-  metalLB:
-    name: metallb
+  emqxEE:
+    name: emqx-ee
     values: ""
     namespace: ""
     repo: ""
     path: ""
     targetRev: ""
     ignoreDiffs: true
-  openebs:
-    name: openebs
+  strimziKafkaOperator:
+    name: strimzi-kafka-operator
     values: ""
     namespace: ""
     repo: ""
     path: ""
     targetRev: ""
     ignoreDiffs: true
-  ingressNginx:
-    name: ingress-nginx
+  kafka:
+    name: kafka
     values: ""
     namespace: ""
     repo: ""
     path: ""
     targetRev: ""
     ignoreDiffs: true
-  metricsServer:
-    name: metrics-server
+  kafkaUI:
+    name: kafka-ui
     values: ""
     namespace: ""
     repo: ""
     path: ""
     targetRev: ""
     ignoreDiffs: true
-  certManager:
-    name: cert-manager
+  spark:
+    name: spark
     values: ""
     namespace: ""
-    repo: ""
-    path: ""
-    targetRev: ""
-    ignoreDiffs: true
-  kubePrometheusStack:
-    name: kube-prometheus-stack
-    values: ""
-    namespace: monitoring
-    repo: ""
-    path: ""
-    targetRev: ""
-    ignoreDiffs: true
-  grafana:
-    name: grafana
-    values: ""
-    namespace: monitoring
     repo: ""
     path: ""
     targetRev: ""

@@ -1,0 +1,9 @@
+apiVersion: v2
+name: mqtt-influxdb-sinker
+description: sending mqtt messages to influxdb
+
+type: application
+
+version: "0.2.12"
+
+appVersion: "v0.1.9.1"

@@ -17,15 +17,19 @@ metadata:
     {{- toYaml .Values.ingress.dashboard.annotations | nindent 4 }}
   {{- end }}
 spec:
+  ingressClassName: nginx
   rules:
   {{- range $host := .Values.ingress.dashboard.hosts }}
   - host: {{ $host }}
     http:
       paths:
       - path: /
+        pathType: Prefix
         backend:
-          serviceName: {{ include "emqx.fullname" $ }}
-          servicePort: {{ $.Values.service.dashboard }}
+          service:
+            name: {{ include "emqx.fullname" $ }}
+            port:
+              number: {{ $.Values.service.dashboard }}
   {{- end -}}
   {{- if .Values.ingress.dashboard.tls }}
   tls:
@@ -52,15 +56,19 @@ metadata:
     {{- toYaml .Values.ingress.mgmt.annotations | nindent 4 }}
   {{- end }}
 spec:
+  ingressClassName: nginx
   rules:
   {{- range $host := .Values.ingress.mgmt.hosts }}
   - host: {{ $host }}
     http:
       paths:
       - path: /
+        pathType: Prefix
         backend:
-          serviceName: {{ include "emqx.fullname" $ }}
-          servicePort: {{ $.Values.service.mgmt }}
+          service:
+            name: {{ include "emqx.fullname" $ }}
+            port:
+              number: {{ $.Values.service.mgmt }}
   {{- end -}}
   {{- if .Values.ingress.mgmt.tls }}
   tls:

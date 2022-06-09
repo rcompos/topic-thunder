@@ -1,0 +1,102 @@
+affinity: {}
+containerSecurityContext:
+  enabled: true
+  runAsNonRoot: true
+  runAsUser: 1000
+# emqxAclConfig: |
+#   {allow, {user, "dashboard"}, subscribe, ["$SYS/#"]}. {allow, {ipaddr, "127.0.0.1"}, pubsub, ["$SYS/#", "#"]}. {deny, all, subscribe, ["$SYS/#", {eq, "#"}]}. {allow, all}.
+emqxAclConfig: >
+  {allow, {user, "dashboard"}, subscribe, ["$SYS/#"]}.
+  {allow, {ipaddr, "127.0.0.1"}, pubsub, ["$SYS/#", "#"]}.
+  {deny, all, subscribe, ["$SYS/#", {eq, "#"}]}.
+  {allow, all}.
+emqxConfig:
+  EMQX_CLUSTER__K8S__ADDRESS_TYPE: hostname
+  EMQX_CLUSTER__K8S__APISERVER: https://kubernetes.default.svc:443
+  EMQX_CLUSTER__K8S__SUFFIX: svc.cluster.local
+  EMQX_LOG__TO: both
+  EMQX_BRIDGE__KAFKA__SERVERS: topic-thunder-kafka-brokers.kafka.svc.cluster.local:9092
+  EMQX_BRIDGE__KAFKA__PRODUCE: async
+  EMQX_BRIDGE__KAFKA__PRODUCER__REPLAYQ_SEG_BYTES: 500MB
+  EMQX_BRIDGE__KAFKA__PRODUCER__REQUIRED_ACKS: none
+  EMQX_BRIDGE__KAFKA__PRODUCER__MAX_SEND_AHEAD: 30
+  EMQX_BRIDGE__KAFKA__ENCODE_PAYLOAD_TYPE: base64
+  EMQX_BRIDGE__KAFKA__SOCK__BUFFER: 40MB
+  EMQX_BRIDGE__KAFKA__SOCK__RECBUF: 40MB
+  EMQX_BRIDGE__KAFKA__SOCK__SNDBUF: 40MB
+  EMQX_BRIDGE__KAFKA__HOOK__MESSAGE__PUBLISH__1: '{\"filter\": \"#\", \"topic\": \"testtopic\"}'
+emqxLicenseSecretName: null
+emqxLoadedModules: |
+  [ { "name": "internal_acl", "enable": true, "configs": {"acl_rule_file": "etc/acl.conf"} }, { "name": "presence", "enable": true, "configs": {"qos": 0} }, { "name": "recon", "enable": true, "configs": {} }, { "name": "retainer", "enable": true, "configs": { "expiry_interval": 0, "max_payload_size": "1MB", "max_retained_messages": 0, "storage_type": "ram" } } ]
+# emqxLoadedPlugins: |
+#   {emqx_management, true}. {emqx_recon, true}. {emqx_retainer, true}. {emqx_dashboard, true}. {emqx_telemetry, true}. {emqx_rule_engine, true}. {emqx_bridge_mqtt, false}. {emqx_modules, true}.
+emqxLoadedPlugins: >
+  {emqx_conf, true}.
+  {emqx_dashboard, true}.
+  {emqx_management, true}.
+  {emqx_recon, true}.
+  {emqx_retainer, true}.
+  {emqx_rule_engine, true}.
+  {emqx_schema_registry, true}.
+  {emqx_bridge_kafka, true}.
+  {emqx_prometheus, true}.
+  {emqx_modules, true}.
+
+image:
+  pullPolicy: IfNotPresent
+  repository: emqx/emqx-ee
+ingress:
+  dashboard:
+    annotations: {}
+    # enabled: false
+    enabled: true
+    hosts:
+    # - dashboard.emqx.local
+    - emqx-dashboard-tt.data.lucidmotors.com
+    path: /
+    tls: []
+  mgmt:
+    annotations: {}
+    # enabled: false
+    enabled: true
+    hosts:
+    # - api.emqx.local
+    - emqx-api-tt.data.lucidmotors.com
+    path: /
+    tls: []
+initContainers: {}
+nodeSelector: {}
+persistence:
+  accessMode: ReadWriteOnce
+  enabled: false
+  size: 20Mi
+podManagementPolicy: Parallel
+podSecurityContext:
+  enabled: true
+  fsGroup: 1000
+  fsGroupChangePolicy: Always
+  runAsUser: 1000
+  supplementalGroups:
+  - 1000
+replicaCount: 3
+resources: {}
+service:
+  annotations: {}
+  dashboard: 18083
+  loadBalancerSourceRanges: []
+  mgmt: 8081
+  mqtt: 1883
+  mqttssl: 8883
+  nodePorts:
+    dashboard: null
+    dashboardtls: null
+    mgmt: null
+    mqtt: null
+    mqttssl: null
+    ws: null
+    wss: null
+  # type: ClusterIP
+  type: LoadBalancer
+  ws: 8083
+  wss: 8084
+tolerations: []

@@ -1,0 +1,29 @@
+# Default values for mqtt-influxdb-sinker.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+image:
+  repository: 752838837007.dkr.ecr.us-west-2.amazonaws.com/mqtt-influxdb-sinker
+  imagePullPolicy: Always
+
+mqtt:
+  #server: emqx.default.svc.cluster.local
+  protocol: tcp
+  server: emqx-ee-headless.emqx.svc.cluster.local
+  port: 1883
+  topic: "car/beta/+/+"
+  client:
+    id: "mqtt-influxdb-scala"
+  qos: 1
+
+influxdb:
+  server: "influxdb-data.influxdb"
+  port: 8086
+  db: "mqtt_messages"
+  retention: mqtt
+
+externalSecretRootCert:
+externalSecretKeyFile:
+externalSecretCertFile:
